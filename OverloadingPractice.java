@@ -1,59 +1,61 @@
-package com.jsp.Mod1.Overloading;
+package com.jsp.Mod1.Scanner;
+
+import java.util.Scanner;
 
 /**
- * Topic: Method Overloading
- * Purpose: Same method name, different behavior based on input.
+ * Topic: Dynamic Read using Scanner Class
+ * Purpose: Reading all primitive types and Strings from the user.
  */
-public class OverloadingPractice {
-
-    // 1. Overloading by Number of Parameters
-    // Adding two integers
-    public static void calculate(int a, int b) {
-        System.out.println("Sum of 2 numbers: " + (a + b));
-    }
-
-    // Adding three integers
-    public static void calculate(int a, int b, int c) {
-        System.out.println("Sum of 3 numbers: " + (a + b + c));
-    }
-
-    // 2. Overloading by Data Type
-    // Multiplication with integers
-    public static void multiply(int a, int b) {
-        System.out.println("Integer Multiplication: " + (a * b));
-    }
-
-    // Multiplication with double values (decimal)
-    public static void multiply(double a, double b) {
-        System.out.println("Double Multiplication: " + (a * b));
-    }
-
-    // 3. Overloading by Order of Parameters
-    // Order: String then Int
-    public static void displayInfo(String name, int id) {
-        System.out.println("Student Name: " + name + " | ID: " + id);
-    }
-
-    // Order: Int then String
-    public static void displayInfo(int id, String name) {
-        System.out.println("ID: " + id + " | Student Name: " + name);
-    }
+public class ScannerPractice {
 
     public static void main(String[] args) {
-        System.out.println("--- Method Overloading Results ---");
-
-        // Calling overloaded 'calculate' methods
-        calculate(10, 20);
-        calculate(10, 20, 30);
-
-        // Calling overloaded 'multiply' methods
-        multiply(5, 4);
-        multiply(5.5, 2.0);
-
-        // Calling overloaded 'displayInfo' methods
-        displayInfo("Abhisheka", 501);
-        displayInfo(502, "John Doe");
         
-        System.out.println("----------------------------------");
+        // Creating Scanner object to read from standard input (Keyboard)
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("--- User Registration Form ---");
+
+        // 1. Reading a single word (String)
+        System.out.print("Enter your first name: ");
+        String firstName = sc.next(); 
+
+        // 2. Reading a whole line/sentence (String)
+        sc.nextLine(); // Consume the leftover newline character
+        System.out.print("Enter your full address: ");
+        String address = sc.nextLine();
+
+        // 3. Reading an integer (int)
+        System.out.print("Enter your age: ");
+        int age = sc.nextInt();
+
+        // 4. Reading a decimal value (double)
+        System.out.print("Enter your CGPA: ");
+        double cgpa = sc.nextDouble();
+
+        // 5. Reading a long value (long)
+        System.out.print("Enter your phone number: ");
+        long phone = sc.nextLong();
+
+        // 6. Reading a boolean (boolean)
+        System.out.print("Are you a student? (true/false): ");
+        boolean isStudent = sc.nextBoolean();
+
+        // 7. Reading a single character (char)
+        // Note: Scanner doesn't have a nextChar() method. 
+        // We use next().charAt(0) to get the first character.
+        System.out.print("Enter your gender (M/F): ");
+        char gender = sc.next().charAt(0);
+
+        System.out.println("\n--- Summary of your Input ---");
+        System.out.println("Name: " + firstName);
+        System.out.println("Address: " + address);
+        System.out.println("Age: " + age);
+        System.out.println("CGPA: " + cgpa);
+        System.out.println("Phone: " + phone);
+        System.out.println("Student Status: " + isStudent);
+        System.out.println("Gender: " + gender);
+
+        // Always close the scanner to prevent memory leaks
+        sc.close();
     }
 }
