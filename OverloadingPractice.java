@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Topic: Dynamic Read using Scanner Class
  * Purpose: Reading all primitive types and Strings from the user.
  */
-public class ScannerPractice {
+public class ScannerPractice{
 
     public static void main(String[] args) {
         
